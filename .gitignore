@@ -11,3 +11,4 @@ coverage
 .idea
 build/
 public/
+commercetools-sunrise-data/
