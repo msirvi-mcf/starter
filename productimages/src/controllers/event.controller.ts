@@ -12,7 +12,6 @@ import { logger } from '../utils/logger.utils';
  * @returns
  */
 export const post = async (request: Request, response: Response) => {
-  let customerId = undefined;
 
   // Check request body
   if (!request.body) {
@@ -21,10 +20,10 @@ export const post = async (request: Request, response: Response) => {
   }
 
   // Check if the body comes in a message
-  if (!request.body.message) {
-    logger.error('Missing body message');
-    throw new CustomError(400, 'Bad request: Wrong No Pub/Sub message format');
-  }
+  // if (!request.body.message) {
+  //   logger.error('Missing body message');
+  //   throw new CustomError(400, 'Bad request: Wrong No Pub/Sub message format');
+  // }
 
   // Receive the Pub/Sub message
   const pubSubMessage = request.body.message;
@@ -36,7 +35,7 @@ export const post = async (request: Request, response: Response) => {
   if (decodedData) {
     const jsonData = JSON.parse(decodedData);
     logger.info('Decoded Event JsonData --');
-    logger.info(jsonData);
+    logger.info(JSON.stringify(jsonData));
   }
 
 
