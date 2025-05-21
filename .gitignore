@@ -3,7 +3,7 @@ coverage
 .terraform
 *.tfvars
 
-!.env
+.env
 .env.local
 
 .DS_Store
