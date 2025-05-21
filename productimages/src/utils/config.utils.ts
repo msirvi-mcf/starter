@@ -18,6 +18,7 @@ export const readConfiguration = () => {
     projectKey: process.env.CTP_PROJECT_KEY as string,
     scope: process.env.CTP_SCOPE,
     region: process.env.CTP_REGION as string,
+    imageAttributes: process.env.IMAGE_ATTRIBUTES as string,
   };
 
   const validationErrors = getValidateMessages(envValidators, envVars);

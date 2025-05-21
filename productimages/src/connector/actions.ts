@@ -39,11 +39,6 @@ async function createSubscription(
             types: ['ProductPublished'],
           },
         ],
-        changes:[
-          {
-            resourceTypeId: 'product'
-          }
-        ]
       },
     })
     .execute();
