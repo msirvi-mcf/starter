@@ -12,3 +12,22 @@ deployAs:
         - key: ENTRY_POINT_URI_PATH
           description: The Application entry point URI path
           required: true
+  - name: productimages
+    applicationType: event
+    endpoint: /productimages
+    scripts:
+      postDeploy: npm install && npm run build && npm run connector:post-deploy
+      preUndeploy: npm install && npm run build && npm run connector:pre-undeploy
+    
+inheritAs:
+  apiClient:
+    scopes:
+    - manage_subscriptions
+    - manage_key_value_documents
+    - manage_products
+  configuration:
+    standardConfiguration:
+      - key: CTP_REGION
+        description: commercetools Composable Commerce API region
+        required: true
+        default: "us-central1.gcp"
