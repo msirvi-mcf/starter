@@ -18,7 +18,8 @@ export const readConfiguration = () => {
     projectKey: process.env.CTP_PROJECT_KEY as string,
     scope: process.env.CTP_SCOPE,
     region: process.env.CTP_REGION as string,
-    imageAttributes: process.env.IMAGE_ATTRIBUTES as string,
+    imageAttributes: process.env.IMAGE_ATTRIBUTES?.split(',').map(el=>el.trim()).filter(Boolean) as string[],
+    // imageUploadLimit: Number(process.env.IMAGE_UPLOAD_LIMIT)|| 20 as number
   };
 
   const validationErrors = getValidateMessages(envValidators, envVars);

@@ -18,7 +18,12 @@ deployAs:
     scripts:
       postDeploy: npm install && npm run build && npm run connector:post-deploy
       preUndeploy: npm install && npm run build && npm run connector:pre-undeploy
-    
+    configuration:
+      standardConfiguration:
+        - key: IMAGE_ATTRIBUTES
+          description: Image Attributes to check for image upload
+          required: true
+          default: "mirakl_image_1,mirakl_image_2,mirakl_image_3"
 inheritAs:
   apiClient:
     scopes:
